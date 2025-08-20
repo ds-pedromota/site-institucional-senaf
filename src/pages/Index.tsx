@@ -1,36 +1,82 @@
 import React, { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
-import ServiceCard from "@/components/ServiceCard";
-import { Link } from "react-router-dom";
-import { Volume2, Music2, Lightbulb, PartyPopper, MoveRight, CalendarDays } from "lucide-react";
+import { 
+  FileText, 
+  CreditCard, 
+  CheckCircle, 
+  Car, 
+  Receipt, 
+  AlertTriangle, 
+  RotateCcw, 
+  CarFront,
+  Shield,
+  DollarSign,
+  Lock,
+  Award
+} from "lucide-react";
 
 const Index = () => {
-  // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const featuredServices = [
+  const processSteps = [
     {
-      title: "Sound System",
-      description: "Professional sound systems for any size venue, from small gatherings to large festivals.",
-      icon: <Volume2 size={24} />,
-      imageSrc: "/lovable-uploads/708f9e32-840d-46a4-aaa4-75ad2689e16f.png",
-      link: "/services#sound"
+      step: 1,
+      title: "Acesse nosso site",
+      description: "O cliente nos encontra na internet e acessa nosso site para conhecer nossos serviços."
     },
     {
-      title: "Lighting Equipment",
-      description: "Create the perfect atmosphere with our state-of-the-art lighting equipment and expert setup.",
-      icon: <Lightbulb size={24} />,
-      imageSrc: "/lovable-uploads/becfc2e3-b59f-4f86-afca-b9f6fc7b7c14.png",
-      link: "/services#lighting"
+      step: 2,
+      title: "Solicite um orçamento",
+      description: "Envie uma mensagem solicitando um orçamento para o serviço desejado."
     },
     {
-      title: "DJ Services",
-      description: "Experienced DJs to keep your event energized with the perfect music selection.",
-      icon: <Music2 size={24} />,
-      imageSrc: "/lovable-uploads/03e83f18-76a1-4349-a197-dbde03a93343.png",
-      link: "/services#dj"
+      step: 3,
+      title: "Consulta de orçamento",
+      description: "Envie os dados do veículo e realize um pagamento simbólico de R$ 5,00 para a consulta."
+    },
+    {
+      step: 4,
+      title: "Receba a proposta",
+      description: "Nossa equipe envia a proposta completa para parcelamento no boleto em até 12x."
+    },
+    {
+      step: 5,
+      title: "Assinatura do contrato",
+      description: "Após a assinatura, a documentação é concluída no prazo estimado escolhido."
+    },
+    {
+      step: 6,
+      title: "Pagamento mensal",
+      description: "Continue pagando os boletos mensais até a quitação total do serviço."
+    }
+  ];
+
+  const services = [
+    { name: "Licenciamento", icon: <FileText size={24} /> },
+    { name: "IPVA", icon: <Receipt size={24} /> },
+    { name: "Multas", icon: <AlertTriangle size={24} /> },
+    { name: "Transferência", icon: <RotateCcw size={24} /> },
+    { name: "Retirada de Pátio", icon: <Car size={24} /> },
+    { name: "Emplacamento 0 KM", icon: <CarFront size={24} /> }
+  ];
+
+  const guarantees = [
+    {
+      title: "Sem consulta SPC/Serasa",
+      description: "Não consultamos seu nome nos órgãos de proteção ao crédito.",
+      icon: <Shield size={32} />
+    },
+    {
+      title: "Veículo bloqueado para transferência",
+      description: "O veículo fica impossibilitado de ser transferido até o pagamento do último boleto.",
+      icon: <Lock size={32} />
+    },
+    {
+      title: "Garantia total",
+      description: "Documentação concluída ou seu dinheiro de volta.",
+      icon: <Award size={32} />
     }
   ];
 
@@ -38,107 +84,135 @@ const Index = () => {
     <div>
       <HeroSection />
       
-      {/* Services Section */}
-      <section className="py-20 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-12">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-2">Our Services</h2>
-              <p className="text-gray-400 max-w-2xl">
-                Professional equipment and expert technicians for all your sound and lighting needs
-              </p>
-            </div>
-            <Link 
-              to="/services"
-              className="mt-4 sm:mt-0 flex items-center text-psyco-green-DEFAULT hover:text-psyco-green-light transition-colors"
-            >
-              View all services
-              <MoveRight className="ml-1 h-4 w-4" />
-            </Link>
+      {/* Seção Como Funciona */}
+      <section id="processo" className="section-padding bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-senaf-dark mb-4">
+              Nosso Processo Simplificado
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Veja como é simples resolver sua documentação e parcelar no boleto
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredServices.map((service, index) => (
-              <ServiceCard
+          <div className="max-w-4xl mx-auto">
+            {processSteps.map((step, index) => (
+              <div 
                 key={index}
-                {...service}
-                className="animate-fade-in"
+                className="process-step animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
-              />
+              >
+                <div className="flex items-start">
+                  <div className="flex-shrink-0 w-12 h-12 bg-senaf-primary text-white rounded-full flex items-center justify-center font-bold text-lg mr-6">
+                    {step.step}
+                  </div>
+                  <div className="flex-grow">
+                    <h3 className="text-xl font-semibold text-senaf-dark mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600">
+                      {step.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
       
-      {/* Event Types Section */}
-      <section className="py-20 px-6 md:px-12 bg-psyco-black-light">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-2">Perfect for Any Event</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              We provide custom sound and lighting solutions for a wide range of events
+      {/* Seção Serviços */}
+      <section id="servicos" className="section-padding bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-senaf-dark mb-4">
+              Nossos Serviços
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Soluções completas para seu veículo em todo o Brasil
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {[
-              { name: "Concerts", icon: <Volume2 size={32} /> },
-              { name: "Weddings", icon: <PartyPopper size={32} /> },
-              { name: "Corporate", icon: <CalendarDays size={32} /> },
-              { name: "Festivals", icon: <Music2 size={32} /> }
-            ].map((event, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {services.map((service, index) => (
               <div 
                 key={index}
-                className="glassmorphism flex flex-col items-center justify-center py-8 px-4 text-center card-hover animate-fade-in"
+                className="glassmorphism p-8 text-center card-hover animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-psyco-green-DEFAULT mb-4">
-                  {event.icon}
+                <div className="text-senaf-primary mb-4 flex justify-center">
+                  {service.icon}
                 </div>
-                <h3 className="text-lg font-medium text-white">{event.name}</h3>
+                <h3 className="text-lg font-semibold text-senaf-dark">
+                  {service.name}
+                </h3>
               </div>
             ))}
           </div>
           
-          <div className="mt-12 text-center">
-            <Link
-              to="/booking"
-              className="inline-flex items-center bg-psyco-green-DEFAULT hover:bg-psyco-green-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 btn-glow"
-            >
-              Book Your Event
-              <MoveRight className="ml-2 h-5 w-5" />
-            </Link>
+          <div className="text-center">
+            <div className="inline-flex items-center bg-senaf-secondary/10 text-senaf-secondary rounded-full px-6 py-3 font-medium">
+              <Car className="h-5 w-5 mr-2" />
+              Atendemos em todo o Brasil
+            </div>
           </div>
         </div>
       </section>
       
-      {/* CTA Section */}
-      <section className="py-20 px-6 md:px-12 bg-psyco-black-light relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute w-96 h-96 bg-psyco-green-DEFAULT/10 rounded-full blur-3xl top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-        </div>
-        
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Elevate Your Event?</h2>
-            <p className="text-gray-300 max-w-2xl mx-auto mb-8">
-              Let's work together to create an unforgettable experience for your guests. Book our services today and bring your vision to life.
+      {/* Seção Garantias */}
+      <section id="garantias" className="section-padding bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-senaf-dark mb-4">
+              Sua Segurança em Primeiro Lugar
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Regras claras e transparentes para sua tranquilidade
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/booking"
-                className="bg-psyco-green-DEFAULT hover:bg-psyco-green-dark text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center btn-glow"
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {guarantees.map((guarantee, index) => (
+              <div 
+                key={index}
+                className="text-center p-8 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                Book Now
-                <MoveRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                to="/services"
-                className="bg-transparent border border-psyco-green-DEFAULT text-psyco-green-DEFAULT hover:bg-psyco-green-DEFAULT/10 font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center"
-              >
-                View Services
-              </Link>
-            </div>
+                <div className="text-senaf-primary mb-6 flex justify-center">
+                  {guarantee.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-senaf-dark mb-4">
+                  {guarantee.title}
+                </h3>
+                <p className="text-gray-600">
+                  {guarantee.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* CTA Final */}
+      <section className="section-padding bg-gradient-to-r from-senaf-primary to-senaf-secondary">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Pronto para Resolver sua Documentação?
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Solicite um orçamento agora mesmo e parcele sua documentação em até 12x no boleto, sem complicações.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/5511999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-senaf-primary hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center text-lg"
+            >
+              <DollarSign className="mr-2 h-5 w-5" />
+              Solicitar Orçamento
+            </a>
           </div>
         </div>
       </section>

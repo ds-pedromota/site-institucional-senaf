@@ -4,35 +4,41 @@
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 160 84% 39%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 184 98% 39%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 160 84% 39%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 174 100% 37%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 160 84% 39%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 174 100% 37%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 160 84% 39%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 184 98% 39%;
 
     --radius: 0.75rem;
+
+    /* Senaf Custom Colors */
+    --senaf-primary: 184 98% 39%; /* #019fa7 */
+    --senaf-secondary: 174 100% 37%; /* #00bfa4 */
+    --senaf-dark: 0 0% 5%; /* #0e0d0d */
+    --senaf-light: 0 0% 100%; /* #ffffff */
   }
 
   * {
@@ -40,12 +46,12 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-boldonse;
+    @apply bg-background text-foreground antialiased font-sans;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 
   html {
-    @apply scroll-smooth font-boldonse;
+    @apply scroll-smooth font-sans;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -53,17 +59,17 @@
 
 @layer components {
   .glassmorphism {
-    @apply backdrop-blur-lg bg-black/70 border border-green-500/10 rounded-xl;
-    box-shadow: 0 4px 30px rgba(16, 185, 129, 0.1);
+    @apply backdrop-blur-lg bg-white/90 border border-senaf-primary/10 rounded-xl shadow-lg;
+    box-shadow: 0 4px 30px rgba(1, 159, 167, 0.1);
   }
   
   .card-hover {
     @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
-    box-shadow: 0 4px 10px rgba(16, 185, 129, 0);
+    box-shadow: 0 4px 10px rgba(1, 159, 167, 0);
   }
   
   .card-hover:hover {
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 8px 20px rgba(1, 159, 167, 0.2);
   }
   
   .btn-glow {
@@ -79,7 +85,7 @@
   }
   
   .text-glow {
-    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    text-shadow: 0 0 10px rgba(1, 159, 167, 0.3);
   }
   
   .section-padding {
@@ -97,12 +103,42 @@
     left: 0;
     height: 2px;
     width: 0;
-    background-color: #10B981;
+    background-color: #019fa7;
     transition: all 0.3s;
   }
   
   .link-hover:hover::after {
     width: 100%;
+  }
+  
+  .process-step {
+    @apply relative pl-8 pb-8;
+  }
+  
+  .process-step::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, hsl(var(--senaf-primary)), hsl(var(--senaf-secondary)));
+  }
+  
+  .process-step::after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 8px;
+    width: 14px;
+    height: 14px;
+    background: hsl(var(--senaf-primary));
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+  
+  .process-step:last-child::before {
+    display: none;
   }
 }
 

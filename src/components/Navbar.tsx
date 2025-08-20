@@ -1,106 +1,56 @@
 
-import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import React from 'react';
+import { FileText, Phone } from 'lucide-react';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
-
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'References', path: '/references' },
-    { name: 'Booking', path: '/booking' },
-  ];
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12',
-        scrolled ? 'glassmorphism bg-opacity-80' : 'bg-transparent'
-      )}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <NavLink to="/" className="flex items-center">
-          <div className="h-20 w-auto md:h-28 md:w-auto relative">
-            <img 
-              src="/lovable-uploads/5964f950-36a7-430c-a887-4eea91ad4973.png" 
-              alt="PSK Services Logo" 
-              className="h-full w-auto object-contain" 
-            />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <FileText className="h-8 w-8 text-senaf-primary" />
+            <h1 className="text-2xl font-bold text-senaf-dark">Senaf</h1>
           </div>
-        </NavLink>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                cn(
-                  'text-white hover:text-green-400 transition-colors duration-300 link-hover text-sm font-medium tracking-wide',
-                  isActive && 'text-green-500 after:w-full'
-                )
-              }
+          
+          <div className="hidden md:flex items-center space-x-8">
+            <button 
+              onClick={() => scrollToSection('processo')}
+              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover"
             >
-              {link.name}
-            </NavLink>
-          ))}
-        </div>
-
-        {/* Mobile Navigation Toggle */}
-        <button
-          className="md:hidden text-white hover:text-green-400 transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation Menu */}
-      <div
-        className={cn(
-          'fixed inset-0 z-40 glassmorphism pt-24 px-8 transition-all duration-300 ease-in-out transform md:hidden',
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        )}
-      >
-        <div className="flex flex-col space-y-4">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.path}
-              to={link.path}
-              className={({ isActive }) =>
-                cn(
-                  'text-white hover:text-green-400 py-2 text-xl transition-colors duration-300',
-                  isActive && 'text-green-500'
-                )
-              }
+              Como Funciona
+            </button>
+            <button 
+              onClick={() => scrollToSection('servicos')}
+              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover"
             >
-              {link.name}
-            </NavLink>
-          ))}
+              Serviços
+            </button>
+            <button 
+              onClick={() => scrollToSection('garantias')}
+              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover"
+            >
+              Garantias
+            </button>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <a
+              href="https://wa.me/5511999999999"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center bg-senaf-primary hover:bg-senaf-primary/90 text-white px-4 py-2 rounded-lg transition-all duration-300 btn-glow"
+            >
+              <Phone className="h-4 w-4 mr-2" />
+              Contato
+            </a>
+          </div>
         </div>
       </div>
     </nav>

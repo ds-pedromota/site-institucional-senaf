@@ -24,8 +24,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Boldonse', 'sans-serif'],
-				boldonse: ['Boldonse', 'sans-serif'],
+				sans: ['Inter', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -33,18 +32,11 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
-				psyco: {
-					green: {
-						DEFAULT: '#10B981', // Primary green
-						light: '#34D399', // Lighter green
-						dark: '#059669', // Darker green
-						muted: 'rgba(16, 185, 129, 0.1)' // Transparent green for backgrounds
-					},
-					black: {
-						DEFAULT: '#121212', // Deep black
-						light: '#1E1E1E', // Lighter black
-						card: 'rgba(30, 30, 30, 0.7)' // Semi-transparent black for cards
-					}
+				senaf: {
+					primary: 'hsl(var(--senaf-primary))', // #019fa7
+					secondary: 'hsl(var(--senaf-secondary))', // #00bfa4
+					dark: 'hsl(var(--senaf-dark))', // #0e0d0d
+					light: 'hsl(var(--senaf-light))', // #ffffff
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',

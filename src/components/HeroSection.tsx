@@ -1,81 +1,65 @@
 
 import React, { useEffect, useRef } from 'react';
-import { MoveRight, Sparkles, Speaker, Music } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Calculator, MessageCircle, CreditCard, FileCheck } from 'lucide-react';
 
 const HeroSection = () => {
-  const backgroundRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!backgroundRef.current) return;
-      
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
-      
-      backgroundRef.current.style.transform = `translate(${x * -15}px, ${y * -15}px)`;
-    };
-    
-    window.addEventListener('mousemove', handleMouseMove);
-    
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-50 pt-20">
       {/* Background Elements */}
-      <div 
-        ref={backgroundRef}
-        className="absolute inset-0 z-0 transition-transform duration-500 ease-out"
-        style={{ willChange: 'transform' }}
-      >
-        <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-green-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-green-400/5 rounded-full blur-3xl"></div>
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-senaf-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-senaf-secondary/5 rounded-full blur-3xl"></div>
       </div>
       
       {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-20 hidden lg:block">
-        <Speaker className="h-12 w-12 text-green-500/30" />
+      <div className="absolute top-1/4 left-20 hidden lg:block opacity-20">
+        <CreditCard className="h-12 w-12 text-senaf-primary" />
       </div>
-      <div className="absolute bottom-1/4 right-20 hidden lg:block">
-        <Music className="h-16 w-16 text-green-500/30" />
+      <div className="absolute bottom-1/4 right-20 hidden lg:block opacity-20">
+        <FileCheck className="h-16 w-16 text-senaf-secondary" />
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center">
-          <div className="max-w-2xl">
-            <div className="flex items-center mb-4">
-              <div className="bg-green-500/20 text-green-400 rounded-full px-4 py-1 text-sm font-medium inline-flex items-center">
-                <Sparkles className="h-3.5 w-3.5 mr-1" />
-                Premium Sound & Light Services
-              </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-8">
+            <div className="inline-flex items-center bg-senaf-primary/10 text-senaf-primary rounded-full px-6 py-2 text-sm font-medium mb-6">
+              <FileCheck className="h-4 w-4 mr-2" />
+              Despachante Especializado
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-glow mb-6">
-              Elevate Your <span className="text-green-500">Event</span> Experience
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-senaf-dark mb-6">
+              Veja como é fácil <span className="text-senaf-primary">parcelar sua documentação</span> 12x no boleto
             </h1>
             
-            <p className="text-xl text-gray-300 mb-8">
-              Professional sound and lighting solutions that bring your event to life. 
-              From concerts to private parties, we deliver exceptional audiovisual experiences.
+            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+              Resolva toda a documentação do seu veículo de forma simples e parcele em até 12x no boleto. 
+              Sem consulta ao SPC/Serasa e com garantia total.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/booking"
-                className="bg-green-500 hover:bg-green-700 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center btn-glow"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={() => scrollToSection('processo')}
+                className="bg-senaf-primary hover:bg-senaf-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center btn-glow text-lg"
               >
-                Book Now
-                <MoveRight className="ml-2 h-5 w-5" />
-              </Link>
-              <Link
-                to="/services"
-                className="bg-transparent border border-green-500 text-green-500 hover:bg-green-500/10 font-medium py-3 px-8 rounded-lg transition-all duration-300 flex items-center justify-center"
+                <Calculator className="mr-2 h-5 w-5" />
+                Solicitar Orçamento
+              </button>
+              <a
+                href="https://wa.me/5511999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-transparent border-2 border-senaf-primary text-senaf-primary hover:bg-senaf-primary hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center text-lg"
               >
-                Our Services
-              </Link>
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Entre em Contato
+              </a>
             </div>
           </div>
         </div>
