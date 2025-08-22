@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 mb-6 md:mb-0">
             <FileText className="h-8 w-8 text-senaf-primary" />
-            <h3 className="text-2xl font-bold">Senaf</h3>
+            <h3 className="text-2xl font-bold">Senafinancing</h3>
             <span className="text-gray-400">- Despachante</span>
           </div>
           
