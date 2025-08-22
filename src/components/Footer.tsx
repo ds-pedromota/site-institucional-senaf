@@ -15,7 +15,7 @@ const Footer = () => {
           
           <div className="flex items-center space-x-6">
             <a
-              href="https://instagram.com/senaf"
+              href="https://instagram.com/senafgroup"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-senaf-primary transition-colors p-2 rounded-full hover:bg-senaf-primary/10"
@@ -24,7 +24,7 @@ const Footer = () => {
               <Instagram className="h-6 w-6" />
             </a>
             <a
-              href="https://wa.me/5511999999999"
+              href="https://wa.me/5512988550059"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-senaf-secondary transition-colors p-2 rounded-full hover:bg-senaf-secondary/10"
@@ -33,7 +33,7 @@ const Footer = () => {
               <MessageCircle className="h-6 w-6" />
             </a>
             <a
-              href="mailto:contato@senaf.com.br"
+              href="mailto:atendimento@senaf.com.br"
               className="text-gray-400 hover:text-senaf-primary transition-colors p-2 rounded-full hover:bg-senaf-primary/10"
               aria-label="Email"
             >
@@ -44,7 +44,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 mt-8 pt-6 text-center">
           <p className="text-gray-400">
-            © 2024 Senaf - Despachante. Todos os direitos reservados.
+            © 2025 Senafinancing - Despachante. Todos os direitos reservados.
           </p>
           <p className="text-sm text-gray-500 mt-2">
             Documentação veicular com parcelamento no boleto • Atendimento em todo o Brasil

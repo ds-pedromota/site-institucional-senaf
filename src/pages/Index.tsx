@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
 import { 
   FileText, 
+  Handshake,
+  Rotate3d, 
   CreditCard, 
   CheckCircle, 
   Car, 
@@ -39,27 +41,29 @@ const Index = () => {
     {
       step: 4,
       title: "Receba a proposta",
-      description: "Nossa equipe envia a proposta completa para parcelamento no boleto em até 12x."
+      description: "Nossa equipe te envia o orçamento completo (bloqueios, restrições, todos os valores detalhados) para parcelamento no boleto em até 12x no boleto."
     },
     {
       step: 5,
       title: "Assinatura do contrato",
-      description: "Após a assinatura, a documentação é concluída no prazo estimado escolhido."
+      description: "Nosso atendimento humanizado conta com aa aseessoria total tirando todas as dúvidas, explicaremos cada detalhe do processo e após a sua assinatura, a documentação é concluída no prazo estimado escolhido."
     },
     {
       step: 6,
       title: "Pagamento mensal",
-      description: "Continue pagando os boletos mensais até a quitação total do serviço."
+      description: "Após sua documentação 100% resolvida, sobrará os boletos parcelados para pagamento."
     }
   ];
 
   const services = [
+    { name: "Assessoria", icon: <Handshake size={24} /> },
     { name: "Licenciamento", icon: <FileText size={24} /> },
     { name: "IPVA", icon: <Receipt size={24} /> },
     { name: "Multas", icon: <AlertTriangle size={24} /> },
-    { name: "Transferência", icon: <RotateCcw size={24} /> },
+    { name: "Transferência", icon: <Rotate3d size={24} /> },
     { name: "Retirada de Pátio", icon: <Car size={24} /> },
-    { name: "Emplacamento 0 KM", icon: <CarFront size={24} /> }
+    { name: "Emplacamento 0 KM", icon: <CarFront size={24} /> },
+    { name: "Serviço de despachante", icon: <FileText size={24} /> }
   ];
 
   const guarantees = [
@@ -205,7 +209,7 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/5511999999999"
+              href="https://wa.me/5512988550059"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-senaf-primary hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center text-lg"
