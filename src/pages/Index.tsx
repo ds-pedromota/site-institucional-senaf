@@ -46,7 +46,7 @@ const Index = () => {
     {
       step: 5,
       title: "Assinatura do contrato",
-      description: "Enviaremos um contrato para assinatura online para sua assinatura, a documentação é concluída no prazo estimado escolhido, em média 10 dias uteis."
+      description: "Enviaremos um contrato online para a sua assinatura, a documentação é concluída no prazo estimado escolhido, em média 10 dias uteis."
     },
     {
       step: 6,
