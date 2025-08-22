@@ -40,13 +40,13 @@ const Index = () => {
     },
     {
       step: 4,
-      title: "Receba a proposta",
-      description: "Nossa equipe te envia o orçamento completo (bloqueios, restrições, todos os valores detalhados) para parcelamento no boleto em até 12x no boleto."
+      title: "Assessoria e Orientação Exclusiva",
+      description: "Conte com uma orientação especializada e exclusiva, que esclarece cada detalhe do seu caso. Fornecemos todas as informações sobre bloqueios, gravames e valores para guiar você, de forma segura, e com um plano de ação até a solução definitiva e parcelada no boleto."
     },
     {
       step: 5,
       title: "Assinatura do contrato",
-      description: "Nosso atendimento humanizado conta com aa aseessoria total tirando todas as dúvidas, explicaremos cada detalhe do processo e após a sua assinatura, a documentação é concluída no prazo estimado escolhido."
+      description: "Enviaremos um contrato para assinatura online para sua assinatura, a documentação é concluída no prazo estimado escolhido, em média 10 dias uteis."
     },
     {
       step: 6,
