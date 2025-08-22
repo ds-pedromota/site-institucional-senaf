@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <FileText className="h-8 w-8 text-senaf-primary" />
+            <img src="/senaf maior.png" alt="Logo Senafinancing" className="h-8 w-8" />
             <h1 className="text-2xl font-bold text-senaf-dark">Senafinancing</h1>
           </div>
           

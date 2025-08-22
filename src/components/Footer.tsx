@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 mb-6 md:mb-0">
-            <FileText className="h-8 w-8 text-senaf-primary" />
+            <img src="/senaf maior.png" alt="Logo Senafinancing" className="h-8 w-8" />
             <h3 className="text-2xl font-bold">Senafinancing</h3>
             <span className="text-gray-400">- Despachante</span>
           </div>
@@ -47,7 +47,7 @@ const Footer = () => {
             © 2025 Senafinancing - Despachante. Todos os direitos reservados.
           </p>
           <p className="text-sm text-gray-500 mt-2">
-            Documentação veicular com parcelamento no boleto • Atendimento em todo o Brasil
+            Documentação veicular com parcelamento no boleto • Atendimento em todo o Brasil.
           </p>
         </div>
       </div>
