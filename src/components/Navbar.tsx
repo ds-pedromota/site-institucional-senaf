@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <FileText className="h-8 w-8 text-senaf-primary" />
-            <h1 className="text-2xl font-bold text-senaf-dark">Senaf</h1>
+            <h1 className="text-2xl font-bold text-senaf-dark">Senafinancing</h1>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
