@@ -52,7 +52,7 @@ const HeroSection = () => {
                 Solicitar Orçamento
               </button>
               <a
-                href="https://wa.me/https://wa.me/message/HJORRYW7IDNDI1"
+                href="https://wa.me/message/HJORRYW7IDNDI11"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-senaf-primary text-senaf-primary hover:bg-senaf-primary hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center text-lg"
