@@ -42,7 +42,7 @@ const Navbar = () => {
 
           <div className="flex items-center space-x-4">
             <a
-              href="https://wa.me/5512988550059"
+              href="https://wa.me/message/HJORRYW7IDNDI1"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center bg-senaf-primary hover:bg-senaf-primary/90 text-white px-4 py-2 rounded-lg transition-all duration-300 btn-glow"
