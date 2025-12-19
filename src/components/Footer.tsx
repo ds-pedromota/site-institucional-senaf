@@ -15,7 +15,7 @@ const Footer = () => {
           
           <div className="flex items-center space-x-6">
             <a
-              href="https://instagram.com/senafgroup"
+              href="https://instagram.com/senafinancing"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-senaf-primary transition-colors p-2 rounded-full hover:bg-senaf-primary/10"
