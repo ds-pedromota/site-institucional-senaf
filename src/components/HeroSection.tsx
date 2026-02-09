@@ -1,6 +1,34 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { Calculator, MessageCircle, CreditCard, FileCheck } from 'lucide-react';
+
+// Helper component for animating numbers
+const AnimatedNumber = ({ value }: { value: number }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { 
+    damping: 60,
+    stiffness: 100,
+  });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, value, motionValue]);
+
+  useEffect(() => {
+    springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = new Intl.NumberFormat('pt-BR').format(latest.toFixed(0));
+      }
+    });
+  }, [springValue]);
+
+  return <span ref={ref}>0</span>;
+};
 
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
@@ -61,6 +89,28 @@ const HeroSection = () => {
                 Entre em Contato
               </a>
             </div>
+
+            <div className="mt-20 grid grid-cols-3 gap-8 text-center">
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-3xl md:text-4xl font-bold text-senaf-dark">
+                  +<AnimatedNumber value={500} />
+                </span>
+                <p className="text-sm md:text-base text-gray-500 mt-2">Clientes Satisfeitos</p>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-3xl md:text-4xl font-bold text-senaf-dark">
+                  +<AnimatedNumber value={1000} />
+                </span>
+                <p className="text-sm md:text-base text-gray-500 mt-2">Documentos Resolvidos</p>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <span className="text-3xl md:text-4xl font-bold text-senaf-dark">
+                  +<AnimatedNumber value={25} />
+                </span>
+                <p className="text-sm md:text-base text-gray-500 mt-2">Anos no Mercado</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

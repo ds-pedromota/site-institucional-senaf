@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
+import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { 
   FileText, 
   Handshake,
@@ -21,6 +23,30 @@ const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Configuração das animações
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        type: "spring",
+        stiffness: 50, 
+        damping: 20 
+      } 
+    },
+  };
 
   const processSteps = [
     {
@@ -86,6 +112,26 @@ const Index = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Senaf Financing | Despachante Online - Parcele IPVA e Multas em 12x</title>
+        <meta name="description" content="Regularize a documentação do seu veículo online. Parcele IPVA, Licenciamento e Multas em até 12x no boleto. Sem consulta ao SPC/Serasa. Atendimento em todo o Brasil." />
+        <meta name="keywords" content="despachante online, parcelar ipva, licenciamento, multas, senaf financing, documentos veiculo" />
+        <link rel="canonical" href="https://senaffinancing.com.br/" />
+        
+        {/* Dados Estruturados (JSON-LD) para Negócio Local */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "FinancialService",
+              "name": "Senaf Financing",
+              "description": "Despachante online especializado em parcelamento de débitos veiculares.",
+              "priceRange": "$$"
+            }
+          `}
+        </script>
+      </Helmet>
+
       <HeroSection />
       
       {/* Seção Como Funciona */}
@@ -100,12 +146,18 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
+          <motion.div 
+            className="max-w-4xl mx-auto"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {processSteps.map((step, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="process-step animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="process-step"
+                variants={itemVariants}
               >
                 <div className="flex items-start">
                   <div className="flex-shrink-0 w-12 h-12 bg-senaf-primary text-white rounded-full flex items-center justify-center font-bold text-lg mr-6">
@@ -120,9 +172,9 @@ const Index = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       
@@ -138,12 +190,18 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {services.map((service, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="glassmorphism p-8 text-center card-hover animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="glassmorphism p-8 text-center card-hover"
+                variants={itemVariants}
               >
                 <div className="text-senaf-primary mb-4 flex justify-center">
                   {service.icon}
@@ -151,9 +209,9 @@ const Index = () => {
                 <h3 className="text-lg font-semibold text-senaf-dark">
                   {service.name}
                 </h3>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
           
           <div className="text-center">
             <div className="inline-flex items-center bg-senaf-secondary/10 text-senaf-secondary rounded-full px-6 py-3 font-medium">
@@ -176,12 +234,18 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
             {guarantees.map((guarantee, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="text-center p-8 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="text-center p-8"
+                variants={itemVariants}
               >
                 <div className="text-senaf-primary mb-6 flex justify-center">
                   {guarantee.icon}
@@ -192,9 +256,9 @@ const Index = () => {
                 <p className="text-gray-600">
                   {guarantee.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       

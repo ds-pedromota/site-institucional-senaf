@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 mb-6 md:mb-0">
-            <img src="/senaf maior.png" alt="Logo Senafinancing" className="h-8 w-8" />
+            <img src="/senaf maior.png" alt="Logo Senafinancing" className="h-8 w-8" loading="lazy" width="32" height="32" />
             <h3 className="text-2xl font-bold">Senaf Financing</h3>
             <span className="text-gray-400">- Despachante</span>
           </div>

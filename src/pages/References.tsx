@@ -26,6 +26,8 @@ const References = () => {
                 <img
                   src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80"
                   alt="Summer Music Festival"
+                  loading="lazy"
+                  decoding="async"
                   className="object-cover h-full w-full transition-transform duration-10000 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-psyco-black-DEFAULT to-transparent flex flex-col justify-end p-6">
@@ -43,6 +45,8 @@ const References = () => {
                 <img
                   src="https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&q=80"
                   alt="Corporate Gala"
+                  loading="lazy"
+                  decoding="async"
                   className="object-cover h-full w-full transition-transform duration-10000 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-psyco-black-DEFAULT to-transparent flex flex-col justify-end p-6">
@@ -60,6 +64,8 @@ const References = () => {
                 <img
                   src="/lovable-uploads/48e75083-18aa-4df9-bc91-8515485aa465.png"
                   alt="Monegros Festival 2024"
+                  loading="lazy"
+                  decoding="async"
                   className="object-cover h-full w-full transition-transform duration-10000 hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-psyco-black-DEFAULT to-transparent flex flex-col justify-end p-6">

@@ -136,6 +136,8 @@ const Services = () => {
                     <img 
                       src={service.image} 
                       alt={service.title} 
+                      loading="lazy"
+                      decoding="async"
                       className="object-cover w-full h-full aspect-video lg:aspect-auto transition-transform duration-10000 hover:scale-110"
                     />
                   </div>

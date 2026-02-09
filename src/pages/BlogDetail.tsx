@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock, User, Tag, Share2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { cn } from "@/lib/utils";
 
 const getBlogPostById = (id: string) => {
@@ -144,8 +145,42 @@ const BlogDetail = () => {
     );
   }
 
+  // Extrair uma descrição curta do primeiro parágrafo para SEO
+  const firstParagraph = post.content.find(block => block.type === 'paragraph');
+  const metaDescription = firstParagraph && typeof firstParagraph.text === 'string' 
+    ? firstParagraph.text.substring(0, 155) + "..." 
+    : `Leia sobre ${post.title} no blog da Senaf Financing.`;
+
   return (
     <div className="pt-32 pb-16">
+      <Helmet>
+        <title>{post.title} | Blog Senaf Financing</title>
+        <meta name="description" content={metaDescription} />
+        
+        {/* Open Graph / Facebook / WhatsApp */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={post.imageSrc} />
+        
+        {/* Dados Estruturados para Artigo */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": "${post.title}",
+              "image": "${post.imageSrc}",
+              "author": {
+                "@type": "Person",
+                "name": "${post.author}"
+              },
+              "datePublished": "${post.date}"
+            }
+          `}
+        </script>
+      </Helmet>
+
       {/* Back button */}
       <div className="max-w-4xl mx-auto px-6 md:px-12 mb-8">
         <Link 
@@ -191,6 +226,8 @@ const BlogDetail = () => {
           <img 
             src={post.imageSrc} 
             alt={post.title} 
+            loading="lazy"
+            decoding="async"
             className="w-full h-auto"
           />
         </div>
