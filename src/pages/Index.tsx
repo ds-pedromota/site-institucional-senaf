@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import HeroSection from "@/components/HeroSection";
-import { motion } from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { 
   FileText, 
@@ -18,6 +18,29 @@ import {
   Lock,
   Award
 } from "lucide-react";
+
+const CountUp = ({ value }: { value: number }) => {
+  const ref = React.useRef<HTMLSpanElement>(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { damping: 60, stiffness: 100 });
+  const isInView = useInView(ref, { once: true, margin: "-10px" });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [isInView, value, motionValue]);
+
+  useEffect(() => {
+    springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = new Intl.NumberFormat("pt-BR").format(latest.toFixed(0));
+      }
+    });
+  }, [springValue]);
+
+  return <span ref={ref}>0</span>;
+};
 
 const Index = () => {
   useEffect(() => {
