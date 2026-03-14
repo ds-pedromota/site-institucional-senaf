@@ -92,7 +92,7 @@ const HeroSection = () => {
                 Solicitar Orçamento
               </motion.button>
               <a
-                href="https://wa.me/5512988550059?text=Ol%C3%A1%2C%20encontrei%20a%20Senaf%20Financing%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento"
+                href="/conversao"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-senaf-primary text-senaf-primary hover:bg-senaf-primary hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center text-lg"

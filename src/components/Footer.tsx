@@ -24,7 +24,7 @@ const Footer = () => {
               <Instagram className="h-6 w-6" />
             </a>
             <a
-              href="https://wa.me/5512988550059?text=Ol%C3%A1%2C%20encontrei%20a%20Senaf%20Financing%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento"
+              href="/conversao"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-senaf-secondary transition-colors p-2 rounded-full hover:bg-senaf-secondary/10"
