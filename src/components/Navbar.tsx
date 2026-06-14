@@ -16,33 +16,33 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <img src="/senaf maior.png" alt="Logo Senafinancing" className="h-8 w-8" width="32" height="32" />
-            <h1 className="text-2xl font-bold text-senaf-dark">Senaf Financing</h1>
+            <a href="/" className="text-2xl font-bold text-senaf-dark">Senaf Financing</a>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('processo')}
-              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover"
-            >
-              Como Funciona
-            </button>
+              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover">
+              Como Funciona </button>
             <button 
               onClick={() => scrollToSection('servicos')}
-              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover"
-            >
+              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover">
               Serviços
             </button>
             <button 
               onClick={() => scrollToSection('garantias')}
-              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover"
-            >
+              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover">
               Garantias
+            </button>
+            <button
+              className="text-senaf-dark hover:text-senaf-primary transition-colors link-hover">
+              <a href="http://senaf.com.br/blog" target="_self" rel="noopener noreferrer">Artigos</a>
             </button>
           </div>
 
           <div className="flex items-center space-x-4">
             <a
-              href="/conversao"
+              href="https://wa.me/5512988550059?text=Ol%C3%A1%2C%20encontrei%20a%20Senaf%20Financing%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center bg-senaf-primary hover:bg-senaf-primary/90 text-white px-4 py-2 rounded-lg transition-all duration-300 btn-glow"

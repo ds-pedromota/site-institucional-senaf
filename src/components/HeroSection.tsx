@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring } from "framer-motion";
+import { m, useScroll, useTransform, useInView, useMotionValue, useSpring } from "framer-motion";
 import { Calculator, MessageCircle, CreditCard, FileCheck } from 'lucide-react';
 
 // Helper component for animating numbers
@@ -22,12 +22,12 @@ const AnimatedNumber = ({ value }: { value: number }) => {
   useEffect(() => {
     springValue.on("change", (latest) => {
       if (ref.current) {
-        ref.current.textContent = new Intl.NumberFormat('pt-BR').format(latest.toFixed(0));
+        ref.current.textContent = new Intl.NumberFormat('pt-BR').format(Math.round(latest));
       }
     });
   }, [springValue]);
 
-  return <span ref={ref}>0</span>;
+  return <span ref={ref}>{new Intl.NumberFormat('pt-BR').format(Math.round(value))}</span>;
 };
 
 const HeroSection = () => {
@@ -37,28 +37,21 @@ const HeroSection = () => {
   const y3 = useTransform(scrollY, [0, 500], [0, 50]);
   const y4 = useTransform(scrollY, [0, 500], [0, -50]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white to-gray-50 pt-20">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <motion.div style={{ y: y1 }} className="absolute top-1/4 left-1/4 w-64 h-64 bg-senaf-primary/5 rounded-full blur-3xl"></motion.div>
-        <motion.div style={{ y: y2 }} className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-senaf-secondary/5 rounded-full blur-3xl"></motion.div>
+        <m.div style={{ y: y1 }} className="absolute top-1/4 left-1/4 w-64 h-64 bg-senaf-primary/5 rounded-full blur-3xl"></m.div>
+        <m.div style={{ y: y2 }} className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-senaf-secondary/5 rounded-full blur-3xl"></m.div>
       </div>
       
       {/* Decorative Elements */}
-      <motion.div style={{ y: y3 }} className="absolute top-1/4 left-20 hidden lg:block opacity-20">
+      <m.div style={{ y: y3 }} className="absolute top-1/4 left-20 hidden lg:block opacity-20">
         <CreditCard className="h-12 w-12 text-senaf-primary" />
-      </motion.div>
-      <motion.div style={{ y: y4 }} className="absolute bottom-1/4 right-20 hidden lg:block opacity-20">
+      </m.div>
+      <m.div style={{ y: y4 }} className="absolute bottom-1/4 right-20 hidden lg:block opacity-20">
         <FileCheck className="h-16 w-16 text-senaf-secondary" />
-      </motion.div>
+      </m.div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -78,11 +71,11 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                onClick={() => scrollToSection('processo')}
+              <m.a
+                href="#processo"
                 className="bg-senaf-primary hover:bg-senaf-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center btn-glow text-lg"
                 animate={{ scale: [1, 1.05, 1] }}
-                transition={{ 
+                transition={{
                   duration: 2,
                   repeat: Infinity,
                   repeatType: "reverse"
@@ -90,9 +83,9 @@ const HeroSection = () => {
               >
                 <Calculator className="mr-2 h-5 w-5" />
                 Solicitar Orçamento
-              </motion.button>
+              </m.a>
               <a
-                href="/conversao"
+                href="https://wa.me/5512988550059?text=Ol%C3%A1%2C%20encontrei%20a%20Senaf%20Financing%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-senaf-primary text-senaf-primary hover:bg-senaf-primary hover:text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 flex items-center justify-center text-lg"

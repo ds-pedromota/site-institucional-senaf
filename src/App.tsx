@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LazyMotion, domAnimation } from "framer-motion";
 import Index from "./pages/Index";
 import Conversao from "./pages/Conversao";
 import Navbar from "./components/Navbar";
@@ -16,18 +17,20 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
       <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Navbar />
-          <main className="min-h-screen">
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/conversao" element={<Conversao />} />
-            </Routes>
-          </main>
-          <Footer />
-        </BrowserRouter>
+        <LazyMotion features={domAnimation} strict>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Navbar />
+            <main className="min-h-screen">
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/conversao" element={<Conversao />} />
+              </Routes>
+            </main>
+            <Footer />
+          </BrowserRouter>
+        </LazyMotion>
       </TooltipProvider>
     </HelmetProvider>
   </QueryClientProvider>

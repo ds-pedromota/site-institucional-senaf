@@ -15,13 +15,21 @@ const Footer = () => {
           
           <div className="flex items-center space-x-6">
             <a
-              href="https://instagram.com/senafinancing"
+              href="https://www.instagram.com/senaf_financing/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-senaf-primary transition-colors p-2 rounded-full hover:bg-senaf-primary/10"
               aria-label="Instagram"
             >
               <Instagram className="h-6 w-6" />
+            </a>
+            <a href="https://www.reclameaqui.com.br/empresa/senaf-financing-ltda/"
+            target='_blank'
+            rel="noopener noreferrer"
+            className="transition-opacity hover:opacity-75 p-2 rounded-full"
+            aria-label="Reclame Aqui"
+            >
+              <img src="/reclame-aqui.png" alt="Reclame Aqui" className="h-6 w-6 object-contain" loading="lazy" />
             </a>
             <a
               href="/conversao"
@@ -49,6 +57,7 @@ const Footer = () => {
           <p className="text-sm text-gray-500 mt-2">
             Documentação veicular com parcelamento no boleto • Atendimento em todo o Brasil.
           </p>
+          <a href="https://senaf.com.br/blog/privacy-policy/" target="_blank" rel="noopener noreferrer">Política de privacidade.</a>
         </div>
       </div>
     </footer>

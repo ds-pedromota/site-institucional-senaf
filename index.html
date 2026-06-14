@@ -8,16 +8,19 @@
     <meta name="description" content="Resolva sua documentação veicular e parcele em até 12x no boleto. Licenciamento, IPVA, multas, transferência. Sem consulta SPC/Serasa. Atendimento em todo o Brasil." />
     <meta name="keywords" content="despachante, boleto, parcelamento, documentação veicular, licenciamento, IPVA, multas, transferência, emplacamento" />
     <meta name="author" content="Senaf Despachante" />
-    <meta property="og:title" content="Senaf - Despachante com Parcelamento no Boleto" />
-    <meta property="og:description" content="Parcele sua documentação veicular em até 12x no boleto. Sem consulta SPC/Serasa." />
+    <meta property="og:title" content="Senaf Financing | Despachante Online - Parcele IPVA e Multas em 12x no Boleto" />
+    <meta property="og:description" content="Regularize a documentação do seu veículo online. Parcele IPVA, Licenciamento e Multas em até 12x no boleto. Sem consulta ao SPC/Serasa. Atendimento em todo o Brasil." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://senaf.com.br" />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://www.senaf.com.br/" />
+    <meta property="og:image" content="https://www.senaf.com.br/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Senaf - Despachante com Parcelamento no Boleto" />
-    <meta name="twitter:description" content="Parcele sua documentação veicular em até 12x no boleto. Sem consulta SPC/Serasa." />
-    <link rel="canonical" href="https://senaf.com.br" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <meta name="twitter:title" content="Senaf Financing | Despachante Online - Parcele IPVA e Multas em 12x no Boleto" />
+    <meta name="twitter:description" content="Regularize a documentação do seu veículo online. Parcele IPVA, Licenciamento e Multas em até 12x no boleto. Sem consulta ao SPC/Serasa." />
+    <link rel="canonical" href="https://www.senaf.com.br/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18015964235"></script>
     <script>
@@ -25,7 +28,10 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'AW-18015964235');
+      gtag('config', 'AW-18015964235', {
+        cookie_domain: 'senaf.com.br',
+        cookie_flags: 'SameSite=None;Secure'
+      });
     </script>
 
   </head>
@@ -34,10 +40,10 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Senaf Despachante",
-      "description": "Serviços de despachante com parcelamento no boleto para documentação veicular",
-      "url": "https://senaf.com.br",
+      "@type": "FinancialService",
+      "name": "Senaf Financing",
+      "description": "Despachante online especializado em parcelamento de débitos veiculares. Regularize IPVA, licenciamento, multas e transferência em até 12x no boleto, sem consulta ao SPC/Serasa.",
+      "url": "https://www.senaf.com.br",
       "telephone": "+55-12-988550059",
       "email": "Atendimento@senaf.com.br",
       "address": {
@@ -45,15 +51,20 @@
         "addressCountry": "BR"
       },
       "areaServed": "BR",
-      "serviceType": [
-        "Assessoria"
-        "Licenciamento Veicular",
-        "IPVA",
-        "Multas de Trânsito",
-        "Transferência de Veículo",
-        "Emplacamento",
-        "Retirada de Pátio"
-      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Despachante",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Assessoria Veicular"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Licenciamento Veicular"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Parcelamento de IPVA"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Regularização de Multas"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Transferência de Veículo"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Retirada de Pátio"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Emplacamento 0 KM"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Serviço de Despachante Online"}}
+        ]
+      },
       "paymentAccepted": "Boleto Bancário",
       "priceRange": "$$"
     }
